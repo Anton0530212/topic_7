@@ -1,16 +1,12 @@
+# Программа, которая запрашивает у пользователя число и
+# выводит на экран факториал этого числа.
 num: int = int(input('Введите число: '))
-if num >= 0:
+
+summa: int = 1
+
+if num >= 0 or num == 0:
     for i in range(1, num + 1):
-        num *= i
-    print(num)
+        summa *= i
+    print('Факториал числа', num, 'равен', summa)
 else:
     print('Факториал определен только для натуральных чисел.')
-
-
-# ---------------
-# summa = 0
-# for i in range(1, num + 1):
-#     summa += i
-#
-# print(summa)
-#
