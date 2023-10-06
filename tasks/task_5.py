@@ -4,7 +4,6 @@ num: int = int(input('Введите число: '))
 
 summa: int = 1
 
-# num >= 0 or num == 0 избыточный код, вторая часть не будет проверяться
 if num >= 0:
     for i in range(1, num + 1):
         summa *= i

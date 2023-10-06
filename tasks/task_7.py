@@ -1,16 +1,33 @@
 num: int = int(input("Введите число: "))
 
-primes: list = []  # Лишняя трата памяти, лучше сразу вывести
+divisor: int = 2
 
-largest_prime_num = 2  # Наименьшее простое число
+while num > 1:
+    while num % divisor == 0:
+        print(divisor, end=' ')
+        num //= divisor
+    divisor += 1
 
-for i in range(2, num + 1):  # Зачем нам этот цикл?
-    while num % i == 0:  # После того, как уберешь
-        # внешний цикл условие этого цикла изменится
-        primes.append(i)  # Сразу выводим в консоль
-        num /= i  # Для деления используется неверный оператор
+# ---------------
+# Шох, признаюсь, не пойму я эту задачу и воспользовался GPT,
+# он мне выдал код ниже, а из него я сделал решение выше
 
-# Мы разве проходили методы строк, функция map?
-# Используем весь арсенал, который проходили до этой темы,
-# но не из будущих тем
-print(" ".join(map(str, primes)))
+def find_prime_factors(num):
+    prime_factors = []
+    divisor = 2
+
+    while num > 1:
+        while num % divisor == 0:
+            prime_factors.append(divisor)
+            num //= divisor
+        divisor += 1
+
+    return prime_factors
+
+
+# Получаем число от пользователя
+num = int(input("Введите число (больше 1): "))
+
+# Вызываем функцию и выводим результат
+result = find_prime_factors(num)
+print("Простые множители:", " ".join(map(str, result)))
